@@ -1,26 +1,27 @@
 # Google_Merchandise_Store
 # Link Google BigQuery: https://console.cloud.google.com/bigquery?ws=!1m7!1m6!12m5!1m3!1sproject-portfolio-471509!2sus-central1!3s1015bb92-1810-4303-b30d-2e8ea97fc038!2e1  
 
-Sử dụng SQL để truy vấn thông tin kinh doanh và tạo bảng dữ liệu nguồn, từ đó trực quan hóa dữ liệu bằng Power BI.  
-Google Merchandise Store là cửa hàng e-commerce mang thương hiệu Google. Nguồn dữ liệu được lấy từ Google BigQuery
+Use SQL to query business information and create source data tables, thereby visualizing data with Power Bi.  
+Google Merchandise Store is an E-commerce store with Google brand. The data source is taken from Google Bigquery
 
-# Dữ liệu được trực quan hóa: 
-<img width="1324" height="744" alt="Google_Merchandise_Store" src="https://github.com/user-attachments/assets/85c81e68-8c25-4682-b846-e22cdc7766a9" />
+# Visualized data:
+<img width="1318" height="739" alt="image" src="https://github.com/user-attachments/assets/10d6b71e-95a7-4a83-b906-8959272c63a6" />
 
-# Truy vấn dữ liệu:
-Tạo bảng Fact để trực quan hóa:
+
+# Data query:
+Create Factboard for visualization:
 ```
 SELECT 
-  -- Thong tin nguoi dung
+    -- User Information
   PARSE_DATE('%Y%m%d', date) AS date
   , fullVisitorId
   , geoNetwork.continent AS continent
   , geoNetwork.subContinent	AS subContinent
   , geoNetwork.country AS country
-  -- Thong tin ve doanh thu
+  -- Revenue Information
   , COALESCE(totals.transactions, 0) AS transactions
   , COALESCE(totals.totalTransactionRevenue / 1000000, 0) AS totalTransactionRevenue
-  -- Thong tin mua hang va san pham
+  -- Purchase Information And Products
   , hour AS hour
   , product.productSKU	AS productSKU
   , product.v2ProductName AS ProductName
@@ -29,7 +30,7 @@ SELECT
   , product.productQuantity AS productQuantity
   , COALESCE(product.productRevenue / 1000000, 0) AS productRevenue
   , hits.eCommerceAction.action_type AS action_type
-  -- Thong tin ve kenh Marketing va cong nghe
+  -- Information About Marketing And Technology Channels
   , trafficSource.campaign AS campaign
   , trafficSource.medium AS medium
   , trafficSource.source AS source
@@ -47,7 +48,7 @@ WHERE hits.eCommerceAction.action_type = "6"
   AND productQuantity IS NOT NULL;
 ```
 
-Các câu truy vấn khác để phục vụ câu hỏi kinh doanh:
+Other queries to serve business questions:
 ```
 -- Query 01: calculate total visit, pageview, transaction for Jan, Feb and March 2017
 SELECT
