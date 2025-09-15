@@ -1,4 +1,6 @@
 # Google_Merchandise_Store
+# Link Google BigQuery: https://console.cloud.google.com/bigquery?ws=!1m7!1m6!12m5!1m3!1sproject-portfolio-471509!2sus-central1!3s1015bb92-1810-4303-b30d-2e8ea97fc038!2e1  
+
 Sử dụng SQL để truy vấn thông tin kinh doanh và tạo bảng dữ liệu nguồn, từ đó trực quan hóa dữ liệu bằng Power BI.  
 Google Merchandise Store là cửa hàng e-commerce mang thương hiệu Google. Nguồn dữ liệu được lấy từ Google BigQuery
 
