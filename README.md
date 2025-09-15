@@ -1,4 +1,4 @@
-# Google-Merchandise-Store
+# Google_Merchandise_Store
 Sử dụng SQL để truy vấn thông tin kinh doanh và tạo bảng dữ liệu nguồn, từ đó trực quan hóa dữ liệu bằng Power BI.  
 Google Merchandise Store là cửa hàng e-commerce mang thương hiệu Google. Nguồn dữ liệu được lấy từ Google BigQuery
 
